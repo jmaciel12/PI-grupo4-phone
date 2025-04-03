@@ -1,20 +1,20 @@
 const productController = {
-    add: (req, res) => {
+  add: function(req, res) {
       res.render("addProduct");
-    },
-  
-    detail: (req, res) => {
+  },
+
+  detail: function(req, res) {
       const productData = {
-        name: "Producto de Ejemplo",
-        description: "Descripción del producto",
-        image: "/img/product.jpg",
+          name: "Producto de Ejemplo",
+          description: "Descripción del producto",
+          image: "/img/product.jpg"
       };
-      res.render("productDetail", { product: productData });
-    },
-  
-    search: (req, res) => {
+      res.render("product", { product: productData });
+  },
+
+  search: function(req, res) {
       res.render("searchResults");
-    },
-  };
-  
-  module.exports = productController;
+  }
+};
+
+module.exports = productController;

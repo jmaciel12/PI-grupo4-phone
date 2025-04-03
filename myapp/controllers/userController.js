@@ -1,20 +1,20 @@
-const userController = {
-    login: (req, res) => {
+const userController = { 
+  login: function(req, res) {
       res.render("login");
-    },
-  
-    register: (req, res) => {
+  },
+
+  register: function(req, res) {
       res.render("register");
-    },
-  
-    profile: (req, res) => {
+  },
+
+  profile: function(req, res) {
       const userData = {
-        username: "UsuarioDemo",
-        email: "usuario@ejemplo.com",
-        profilePicture: "/img/profile.jpg",
+          username: "UsuarioDemo",
+          email: "usuario@ejemplo.com",
+          profilePicture: "/img/profile.jpg"
       };
       res.render("profile", { user: userData });
-    },
-  };
-  
-  module.exports = userController;
+  }
+};
+
+module.exports = userController;
