@@ -1,3 +1,5 @@
+const { usuario } = require('../db');
+
 const userController = { 
   login: function(req, res) {
       res.render("login");
@@ -8,12 +10,12 @@ const userController = {
   },
 
   profile: function(req, res) {
-      const userData = {
-          username: "UsuarioDemo",
-          email: "usuario@ejemplo.com",
-          profilePicture: "/img/profile.jpg"
-      };
-      res.render("profile", { user: userData });
+    //   const userData = {
+    //       username: "UsuarioDemo",
+    //       email: "usuario@ejemplo.com",
+    //       profilePicture: "/img/profile.jpg"
+    //   };
+      res.render("profile", { usuario});
   }
 };
 

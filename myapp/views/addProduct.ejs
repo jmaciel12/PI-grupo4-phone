@@ -25,7 +25,6 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-<<<<<<< HEAD:views/addProduct.ejs
 			<h2 class="col-12"> <form action="/products/add" method="GET" enctype="multipart/form-data" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
 
   			<label for="imagen">Imagen del producto:</label>
@@ -39,22 +38,6 @@
 
  		 	<button type="submit">Agregar producto</button>
 			</form>
-=======
-			<h2 class="col-12"> 
-				<form action="/products/add" method="GET" enctype="multipart/form-data" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
-
-					<label for="imagen">Imagen del producto:</label>
-						<input type="file" name="imagen" id="imagen" required />
-	  
-					<label for="nombreProducto">Nombre del producto:</label>
-						<input type="text" name="nombreProducto" id="nombreProducto" required />
-	  
-					<label for="descripcion">Descripción:</label>
-					<input type="text" name="descripcion" id="descripcion" required />
-	  
-					<button type="submit">Agregar producto</button>
-				</form>
->>>>>>> fe9be9070bb3d1a788fdbd6fd758258c74033868:myapp/views/addProduct.ejs
 			</h2>
 	</div>
 	<%- include('./partials/footer') %>
