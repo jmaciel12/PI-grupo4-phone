@@ -1,6 +1,6 @@
 const mainController = {
     index: (req, res) => {
-      res.render("index", { title: "Mercado Liebre" });
+      res.render("index", { title: "Mercado Libre" });
     },
   };
   

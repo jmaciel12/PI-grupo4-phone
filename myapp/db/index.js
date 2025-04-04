@@ -1,41 +1,34 @@
-const celulares = {
+const celulares = [
+  {
+    id: 1,
+    nombre: "Samsung Galaxy S24 Ultra",
+    precio: 1299999,
+    imagen: "/images/s24-ultra.jpg",
+    descripcion:
+      "La cámara más poderosa y el rendimiento más veloz de Samsung.",
+  },
+  {
+    id: 2,
+    nombre: "iPhone 15 Pro",
+    precio: 1599999,
+    imagen: "/images/iphone-15-pro.jpg",
+    descripcion: "Diseño de titanio, chip A17 Pro y cámaras de cine.",
+  },
+  {
+    id: 3,
+    nombre: "Motorola Edge 40 Neo",
+    precio: 449999,
+    imagen: "/images/edge-40-neo.jpg",
+    descripcion:
+      "Pantalla pOLED de 144Hz, carga ultra rápida y diseño elegante.",
+  },
+  {
+    id: 4,
+    nombre: "Xiaomi Redmi Note 13 Pro+",
+    precio: 529999,
+    imagen: "/images/redmi-13-pro-plus.jpg",
+    descripcion: "Cámara de 200MP, pantalla AMOLED 120Hz y batería duradera.",
+  },
+];
 
-    //Lista de celulares
-    lista : [
-        {
-            id: 1,
-            nombre: "Celular 1",
-            precio: 1000,
-            imagen: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        },
-        {
-            id: 2,
-            nombre: "Celular 2",
-            precio: 2000,
-            imagen: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"                
-        },
-
-        {
-            id: 3,
-            nombre: "Celular 3",
-            precio: 3000,
-            imagen: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"                
-        },
-
-        {
-            id: 4,
-            nombre: "Celular 4",
-            precio: 4000,
-            imagen: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"                
-        },
-
-        {
-            id: 5,
-            nombre: "Celular 5",
-            precio: 5000,
-            imagen: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"                
-        }
-    ]
-}
-
-module.exports = celulares
+module.exports = celulares;
