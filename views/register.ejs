@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+
+	<title> Mercado Liebre Argentina</title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+</head>
+
+<body>
+	<%- include('partials/header') %>
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Registrate</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<h2 class="col-12"> 
+				<form action="/users/register" method="GET" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
+					<label for="email">Email:</label>
+					<input type="email" name="email" id="email" required />
+				  
+					<label for="usuario">Usuario:</label>
+					<input type="text" name="usuario" id="usuario" required />
+				  
+					<label for="contraseña">Contraseña:</label>
+					<input type="password" name="contraseña" id="contraseña" required />
+				  
+					<label for="fechaNacimiento">Fecha de nacimiento:</label>
+					<input type="date" name="fechaNacimiento" id="fechaNacimiento" required />
+				  
+					<label for="documento">Nro. de documento:</label>
+					<input type="number" name="documento" id="documento" required />
+				  
+					<label for="fotoPerfil">Foto de perfil:</label>
+					<input type="text" name="fotoPerfil" id="fotoPerfil" required />
+				  
+					<button type="submit">Registrarme</button>
+				  </form>
+
+			
+			</h2>
+	</div>
+	
+	<%- include('partials/footer') %>
+</body>
+
+</html>
