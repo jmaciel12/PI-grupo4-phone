@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/logo-celu-market.png" />
+    <title>Agregar Producto</title>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo.png " />
+    <!-- Font Awesome Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- Bootstrap Grid Stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+  </head>
+  <body>
+    <%- include('./partials/headerLogueado') %>
 
-	<title>Add Product</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-</head>
+    <main class="container">
+      <h1 class="products-title">Agregar Producto</h1>
 
-<body>
-	<%- include('./partials/headerLogueado') %>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <form action="/products/add" method="GET" enctype="multipart/form-data" style="max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 10px;">
+      <form action="/product/add" method="GET" class="form">
+        <div class="form-group">
+          <label for="nombre">Nombre del producto</label>
+          <input
+            type="text"
+            name="nombre"
+            id="nombre"
+            class="form-input"
+            required
+          />
+        </div>
 
-  			<label for="imagen">Imagen del producto:</label>
- 				 <input type="file" name="imagen" id="imagen" required />
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea
+            name="descripcion"
+            id="descripcion"
+            class="form-input"
+            required
+          ></textarea>
+        </div>
 
-  			<label for="nombreProducto">Nombre del producto:</label>
- 				 <input type="text" name="nombreProducto" id="nombreProducto" required />
+        <div class="form-group">
+          <label for="imagen">Imagen (URL o archivo)</label>
+          <input type="text" name="imagen" id="imagen" class="form-input" />
+        </div>
 
- 		 	<label for="descripcion">Descripción:</label>
- 			 <input type="text" name="descripcion" id="descripcion" required />
+        <button type="submit" class="buy-now-button">Agregar Producto</button>
+      </form>
+    </main>
 
- 		 	<button type="submit">Agregar producto</button>
-			</form>
-			</h2>
-	</div>
-	<%- include('./partials/footer') %>
-</body>
-
+    <%- include('./partials/footer') %>
+  </body>
 </html>

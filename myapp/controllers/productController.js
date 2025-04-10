@@ -1,23 +1,21 @@
-const { productos } = require('../db');
+const celulares = require("../db");
 
 const productController = {
-  add: function(req, res) {
-      res.render("addProduct");
+  add: function (req, res) {
+    res.render("addProduct", { usuario: celulares.usuario });
   },
 
-  detail: function(req, res) {
-    //   const productData = {
-    //       name: "Producto de Ejemplo",
-    //       description: "Descripción del producto",
-    //       image: "/img/product.jpg"
-    //   };
-    const producto = productos[0];
-      res.render("product", { producto });
-  },
+  detail: function (req, res) {
+    const productoEjemplo = celulares.productos[0];
 
-  search: function(req, res) {
-      res.render("searchResults");
-  }
+    res.render("product", {
+      producto: productoEjemplo,
+      comentarios: productoEjemplo.comentarios,
+    });
+  },
+  search: function (req, res) {
+    res.render("searchResults");
+  },
 };
 
 module.exports = productController;

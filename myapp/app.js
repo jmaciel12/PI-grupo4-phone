@@ -21,10 +21,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+//Prefijos//
 app.use("/", mainRoutes);
 app.use("/user", userRoutes);
 app.use("/product", productRoutes);
+//Prefijos//
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

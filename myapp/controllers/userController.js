@@ -1,21 +1,20 @@
-const { usuario } = require('../db');
+const celulares = require('../db');
 
 const userController = { 
   login: function(req, res) {
-      res.render("login");
+    res.render("login");
   },
 
   register: function(req, res) {
-      res.render("register");
+    res.render("register");
   },
 
   profile: function(req, res) {
-    //   const userData = {
-    //       username: "UsuarioDemo",
-    //       email: "usuario@ejemplo.com",
-    //       profilePicture: "/img/profile.jpg"
-    //   };
-      res.render("profile", { usuario});
+    res.render("profile", { 
+      usuario: celulares.usuario,        
+      productos: celulares.productos,    
+      title: "Perfil de " + celulares.usuario.nombre
+    });
   }
 };
 

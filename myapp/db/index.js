@@ -28,17 +28,17 @@ const celulares = {
         {
           usuario: "Luis Fernández",
           texto: "Excelente calidad de cámara, saca fotos increíbles.",
-          imagenPerfil: "/images/users/default-image.jpg"
+          imagenPerfil: "/images/users/avatar.svg"
         },
         {
           usuario: "María López",
           texto: "Lo uso para trabajar y va muy rápido, estoy conforme.",
-          imagenPerfil: "/images/users/default-image.jpg"
+          imagenPerfil: "/images/users/avatar.svg"
         },
         {
           usuario: "Carlos Méndez",
           texto: "Llegó en tiempo y forma, bien embalado. Muy satisfecho.",
-          imagenPerfil: "/images/users/default-image.jpg"
+          imagenPerfil: "/images/users/avatar.svg"
         }
       ]
     },
