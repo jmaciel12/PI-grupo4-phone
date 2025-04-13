@@ -33,11 +33,11 @@
           <div class="d-flex align-items-center">
             <h1 class="main-title">
               <%= usuario.nombre %>
-              <a href="profile-edit.html">
+              <a href="/user/profile">
                 <i class="fas fa-cog"></i>
               </a>
             </h1>
-            <a class="btn mt-3 ml-4" href="">SEGUIR</a>
+            <a class="btn mt-3 ml-4" href="/user/profile">SEGUIR</a>
           </div>
           <div>
             <h5><%= usuario.email %></h5>
@@ -75,7 +75,7 @@
                 <h2><%= productos[i].nombre %></h2>
                 <p><%= productos[i].descripcion %></p>
                 <p>Comentarios: 12</p>
-                <!-- Después podemos hacerlo dinámico -->
+                
               </article>
             </a>
           </section>

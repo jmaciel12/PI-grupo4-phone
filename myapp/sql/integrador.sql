@@ -45,7 +45,7 @@ INSERT INTO usuarios (email, contraseña, fecha_nacimiento, documento, foto_perf
 VALUES 
 ('brian@gmail.com', 'brian123', '2001-04-12', 46000111, '/images/users/brian.png'),
 ('jonnyboca@gmail.com', 'boca123', '1998-12-05', 45322110, '/images/users/jonny.png'),
-('lautaro.poggi@gmail.com', 'poggi456', '2005-09-13', 46938863, '/images/users/lautaro.png'),
+('lautaro.poggi@gmail.com', 'poggi456', '2005-09-13', 46938863, '/images/users/poggi.png'),
 ('portalautaro@gmail.com', 'porta789', '2004-06-30', 47222333, '/images/users/porta.png'),
 ('luis@gmail.com', 'luis000', '1997-03-21', 43111222, '/images/users/luis.jpg'),
 ('srudesa@gmail.com', 'srudesa321', '2000-08-18', 45123456, '/images/users/srudesa.jpg');

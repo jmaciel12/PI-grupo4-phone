@@ -5,7 +5,7 @@ const celulares = {
     password: "1234",
     fechaNacimiento: "13/09/2005",
     NDocumento: "46938863",
-    imagenPerfil: "/images/users/default-image.png"
+    imagenPerfil: "/images/users/poggi.jpeg",
   },
 
   productos: [

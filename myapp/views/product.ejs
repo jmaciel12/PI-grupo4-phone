@@ -23,13 +23,13 @@
       <div class="d-flex align-items-center">
         <h2 class="products-title"><%= producto.nombre %></h2>
         <p class="product-detail-description">
-          <a href="#">Editar</a>
+          <a href="/product/add">Editar</a>
         </p>
       </div>
 
       <div class="product-detail">
         <div class="row">
-          <!-- Imagen y descripción -->
+          
           <article class="col-12 col-lg-8 product-detail-info">
             <img
               src="<%= producto.imagen %>"
@@ -41,7 +41,7 @@
             </p>
           </article>
 
-          <!-- Comentarios -->
+        
           <div class="col-12 col-lg-4">
             <section class="comments">
               <h3>Comentarios</h3>
@@ -54,7 +54,7 @@
                 />
                 <div class="data">
                   <p class="user">
-                    <strong><%= comentarios[i].usuario %>:</strong>
+                    <strong><a href="/user/profile"><%= comentarios[i].usuario %></a> :</strong>
                     <%= comentarios[i].texto %>
                   </p>
                 </div>
@@ -62,7 +62,7 @@
               <% } %>
             </section>
 
-            <form class="form" action="" method="POST">
+            <form class="form" action="/product/detalle" method="get">
               <input
                 class="form-input"
                 type="text"
