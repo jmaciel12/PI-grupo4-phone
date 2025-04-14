@@ -13,9 +13,14 @@ const productController = {
       comentarios: productoEjemplo.comentarios,
     });
   },
-  search: function (req, res) {
-    res.render("searchResults");
-  },
+  search: function(req, res) {
+    res.render('searchResults', { 
+      listado: celulares.productos, 
+      
+    });
+  }
+  
 };
+
 
 module.exports = productController;
