@@ -211,7 +211,7 @@ const celulares = {
       id: 7,
       nombre: "Google Pixel 6",
       descripcion: "Android puro y excelente cámara",
-      imagen: "/images/products/google-pixel 6.png",
+      imagen: "/images/products/google-pixel-6.png",
       comentarios: [
         {
           usuario: "Juan García",

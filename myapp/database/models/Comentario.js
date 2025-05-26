@@ -1,4 +1,4 @@
-module.exports = function (sequelize, dataTypes) {
+module.exports = function (sequelize, dataTypes) { //un modelo es una funcion
     let alias = "Comentario";
 
     let cols = {
@@ -19,13 +19,13 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.TEXT,
             allowNull: false,
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
         },
-        deleted_at: {
+        deletedAt: {
             type: dataTypes.DATE,
         },
     };
@@ -33,11 +33,10 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName: "comentarios",
         timestamps: true,
-        underscored: true,
         paranoid: true
     };
 
-    const Comentario = sequelize.define(alias, cols, config);
+    let Comentario = sequelize.define(alias, cols, config); //Sequelize me presta un método llamado define para crear un modelo
 
     Comentario.associate = function (models) {
         Comentario.belongsTo(models.Producto, {

@@ -22,13 +22,13 @@ module.exports = function (sequelize, dataTypes) {
         descripcion: {
             type: dataTypes.TEXT,
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
         },
-        deleted_at: {
+        deletedAt: {
             type: dataTypes.DATE,
         },
     };
@@ -36,13 +36,12 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName: "productos",
         timestamps: true,
-        underscored: true,
         paranoid: true
     };
 
     const Producto = sequelize.define(alias, cols, config);
 
-    Producto.associate = function (models) {
+    Producto.associate = function (models) { //funcion anónima que me trae los modelos para asociarlos
         Producto.belongsTo(models.Usuario, {
             as: "usuario",
             foreignKey: "usuario_id"

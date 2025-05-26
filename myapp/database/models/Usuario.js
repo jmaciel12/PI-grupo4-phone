@@ -26,13 +26,13 @@ module.exports = function (sequelize, dataTypes) {
         foto_perfil: {
             type: dataTypes.STRING(500),
         },
-        created_at: {
+        createdAt: {
             type: dataTypes.DATE,
         },
-        updated_at: {
+        updatedAt: {
             type: dataTypes.DATE,
         },
-        deleted_at: {
+        deletedAt: {
             type: dataTypes.DATE,
         },
     };
@@ -40,7 +40,6 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName: "usuarios",
         timestamps: true,
-        underscored: true,
         paranoid: true
     };
 
