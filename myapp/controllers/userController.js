@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const userController = {
   register: function(req, res) {
     if (req.session.user != undefined) {
-      return res.redirect('/users/profile');
+      return res.redirect('/user/profile');
     }
 
     res.render("register", {
@@ -71,7 +71,7 @@ const userController = {
           updatedAt: new Date()
         })
         .then(function() {
-          res.redirect('/users/login'); 
+          res.redirect('/user/login'); 
         })
         .catch(function(error) {
           res.send("Error al guardar el usuario: " + error);
@@ -90,7 +90,7 @@ const userController = {
 },
   profile: function(req, res) {
   if (!req.session.user) {
-    return res.redirect('/users/login');
+    return res.redirect('/user/login');
   }
 
   res.render("profile", {
@@ -124,7 +124,7 @@ const userController = {
        if (recordame) {
         res.cookie('recordame', usuario.id, { maxAge: 1000 * 60}); 
       }
-      return res.redirect("/users/profile");
+      return res.redirect("/user/profile");
     })
     .catch(function(error) {
       return res.send("error");

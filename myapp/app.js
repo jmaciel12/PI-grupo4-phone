@@ -63,7 +63,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Prefijos//
 app.use("/", mainRoutes);
-app.use("/users", userRoutes);
+app.use("/user", userRoutes);
 app.use("/product", productRoutes);
 //Prefijos//
 
