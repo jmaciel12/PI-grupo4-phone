@@ -8,8 +8,16 @@ const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 
-var app = express();
 
+
+
+var app = express();
+const session = require('express-session');
+app.use(session({
+  secret: 'Bocaa123', 
+  resave: false,
+  saveUninitialized: true
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -23,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Prefijos//
 app.use("/", mainRoutes);
-app.use("/user", userRoutes);
+app.use("/users", userRoutes);
 app.use("/product", productRoutes);
 //Prefijos//
 

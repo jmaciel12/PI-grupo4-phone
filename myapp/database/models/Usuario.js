@@ -19,10 +19,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.DATE,
             allowNull: false,
         },
-        documento: {
-            type: dataTypes.INTEGER.UNSIGNED,
-            allowNull: false,
-        },
+       
         foto_perfil: {
             type: dataTypes.STRING(500),
         },
