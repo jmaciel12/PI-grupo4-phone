@@ -8,7 +8,7 @@ router.get("/register", userController.register);
 router.post("/register", userController.Register);
 router.get("/profile", userController.profile);
 
-// esta es para el login
+
 router.post("/login", userController.processLogin);
 router.get('/logout', userController.logout);
 

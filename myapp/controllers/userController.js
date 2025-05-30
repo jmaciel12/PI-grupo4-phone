@@ -103,7 +103,7 @@ const userController = {
 
   
   processLogin: function(req, res) {
-  const { email, password } = req.body;
+  const { email, password, recordame } = req.body;
 
   db.Usuario.findOne({ where: { email: email } })
     .then(function(usuario) {
@@ -121,6 +121,9 @@ const userController = {
       }
 
       req.session.user = usuario;
+       if (recordame) {
+        res.cookie('recordame', usuario.id, { maxAge: 1000 * 60}); 
+      }
       return res.redirect("/users/profile");
     })
     .catch(function(error) {
@@ -130,18 +133,17 @@ const userController = {
     
   },
 logout: function(req, res) {
-  req.session.destroy(); 
-  res.redirect('/');    
-  }
-
-
-
+  res.clearCookie('recordame');
+  req.session.destroy(function(err) {
+    if (err) {
+      return res.send("Error al cerrar sesión");
+    }
+    res.redirect('/');
+  });
+}
 
   
 };
-
-
-
 
 
 
