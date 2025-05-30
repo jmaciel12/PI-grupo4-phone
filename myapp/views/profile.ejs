@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!-- Include Head -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
-
+    <link rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
     <title>Profile</title>
-    <!-- Font Awesome Stylesheet -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <!-- Bootstrap Grid Stylesheet -->
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
-    <!-- Own Stylesheet -->
     <link rel="stylesheet" href="/stylesheets/app.css" />
   </head>
   <body>
     <%- include('./partials/headerLogueado') %>
+
     <!-- Datos del usuario -->
     <section class="info-usuario container products-wrapper">
       <div class="row">
         <div class="img-container offset-3 col-2">
           <img
-            src="<%= usuario.imagenPerfil %>"
+            src="/images/users/<%= usuario.foto_perfil || 'default-image.png' %>"
             alt="foto de perfil"
             class="foto-perfil"
           />
@@ -32,19 +27,19 @@
         <div class="data-container col-6">
           <div class="d-flex align-items-center">
             <h1 class="main-title">
-              <%= usuario.nombre %>
-              <a href="/user/profile">
+              <%= usuario.nombre_usuario %>
+              <a href="/users/profile">
                 <i class="fas fa-cog"></i>
               </a>
             </h1>
-            <a class="btn mt-3 ml-4" href="/user/profile">SEGUIR</a>
+            <a class="btn mt-3 ml-4" href="/users/profile">SEGUIR</a>
           </div>
           <div>
             <h5><%= usuario.email %></h5>
           </div>
           <div>
-            <ul class="">
-              <li>8 productos</li>
+            <ul>
+              <li><%= productos.length %> productos</li>
               <li>200 seguidores</li>
               <li>300 comentarios</li>
             </ul>
@@ -52,7 +47,6 @@
         </div>
       </div>
     </section>
-    <!-- /Datos del usuario -->
 
     <!-- Mis productos -->
     <div class="container products-wrapper">
@@ -61,30 +55,31 @@
           <h2 class="products-title">Mis productos</h2>
         </div>
 
-        <% for (let i = 0; i < productos.length; i++) { %>
-        <div class="col-12 col-sm-6 col-lg-3">
-          <section class="product-box">
-            <a href="/product/detalle/">
-              <figure class="product-box_image">
-                <img
-                  src="<%= productos[i].imagen %>"
-                  alt="<%= productos[i].nombre %>"
-                />
-              </figure>
-              <article class="product-box_data">
-                <h2><%= productos[i].nombre %></h2>
-                <p><%= productos[i].descripcion %></p>
-                <p>Comentarios: 12</p>
-                
-              </article>
-            </a>
-          </section>
-        </div>
+        <% if (productos.length === 0) { %>
+          <div class="col-12">
+            <p>No tenés productos cargados aún.</p>
+          </div>
+        <% } else { %>
+          <% productos.forEach(function(producto) { %>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <section class="product-box">
+                <a href="/product/detalle/<%= producto.id %>">
+                  <figure class="product-box_image">
+                    <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>" />
+                  </figure>
+                  <article class="product-box_data">
+                    <h2><%= producto.nombre %></h2>
+                    <p><%= producto.descripcion %></p>
+                    <p>Comentarios: 12</p>
+                  </article>
+                </a>
+              </section>
+            </div>
+          <% }) %>
         <% } %>
       </div>
     </div>
-    <!-- /Mis productos -->
-    
+
     <%- include('./partials/footer') %>
   </body>
 </html>

@@ -84,15 +84,65 @@ const userController = {
 
 
   login: function(req, res) {
-    res.render("login");
-  },
-
+  res.render("login", {
+    errorLogin: "" 
+  });
+},
   profile: function(req, res) {
-    res.render("profile", { 
-      usuario: req.session.user,
-      title: "Perfil de " + req.session.user.nombre_usuario
-    });
+  if (!req.session.user) {
+    return res.redirect('/users/login');
   }
+
+  res.render("profile", {
+    usuario: req.session.user,
+    productos: [], 
+    title: "Perfil de " + req.session.user.nombre_usuario
+  });
+},
+
+
+  
+  processLogin: function(req, res) {
+  const { email, password } = req.body;
+
+  db.Usuario.findOne({ where: { email: email } })
+    .then(function(usuario) {
+      if (!usuario) {
+        return res.render("login", {
+          errorLogin: "Email o contraseña incorrectos"
+        });
+      }
+
+      const contraseñaOk = bcrypt.compareSync(password, usuario.contraseña);
+      if (!contraseñaOk) {
+        return res.render("login", {
+          errorLogin: "Email o contraseña incorrectos"
+        });
+      }
+
+      req.session.user = usuario;
+      return res.redirect("/users/profile");
+    })
+    .catch(function(error) {
+      return res.send("error");
+    });
+
+    
+  },
+logout: function(req, res) {
+  req.session.destroy(); 
+  res.redirect('/');    
+  }
+
+
+
+
+  
 };
+
+
+
+
+
 
 module.exports = userController;
