@@ -7,6 +7,7 @@ router.get("/login", userController.login);
 router.get("/register", userController.register);
 router.post("/register", userController.Register);
 router.get("/profile", userController.profile);
+router.get("/profile/:id", userController.viewProfileById);
 
 
 router.post("/login", userController.processLogin);

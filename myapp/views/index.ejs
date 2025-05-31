@@ -19,7 +19,7 @@
   </head>
 
   <body>
-    <%- include('./partials/header') %>
+    <%- include('partials/header') %>
 
     <!-- Banner -->
     <div class="banner"></div>
@@ -33,25 +33,28 @@
         </div>
 
         <!-- Mostrar los productos -->
-        <% for (let i = 0; i < listado.length; i++) { %>
+        <% for (let i = 0; i < listado.length; i++) {
+             const producto = listado[i]; %>
           <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-              <a href="/product/detalle/<%= listado[i].id %>">
+              <a href="/product/detalle/<%= producto.id %>">
                 <figure class="product-box_image">
                   <img
-                    src="/images/products/<%= listado[i].imagen %>"
-                    alt="<%= listado[i].nombre %>"
+                    src="/images/products/<%= producto.imagen %>"
+                    alt="<%= producto.nombre %>"
                   />
                 </figure>
               </a>
 
               <article class="product-box_data">
-                <a href="/product/detalle/<%= listado[i].id %>">
-                  <h2><%= listado[i].nombre %></h2>
-                  <p><%= listado[i].descripcion %></p>
+                <a href="/product/detalle/<%= producto.id %>">
+                  <h2><%= producto.nombre %></h2>
+                  <p><%= producto.descripcion %></p>
                 </a>
-                <p>
-                  <a href="/user/profile"><%= listado[i].usuario.email %></a>
+                <p> 
+                  <a href="/user/profile/<%= producto.usuario.id %>">
+                    <%= producto.usuario.email %>
+                  </a>
                 </p>
               </article>
             </section>
@@ -60,6 +63,6 @@
       </div>
     </div>
 
-    <%- include('./partials/footer') %>
+    <%- include('partials/footer') %>
   </body>
 </html>

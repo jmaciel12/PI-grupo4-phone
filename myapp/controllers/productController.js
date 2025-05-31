@@ -1,6 +1,7 @@
 const db = require("../database/models");
 const Producto = db.Producto;
 const Comentario = db.Comentario;
+const op = db.Sequelize.Op;
 
 let relacion = {
   include: [
@@ -36,9 +37,26 @@ const productController = {
   },
 
   search: function(req, res) {
-    res.render('searchResults', { 
-      listado: celulares.productos, 
-      
+    let busqueda = req.query.search;
+
+    Producto.findAll({
+      include: [
+        {
+          association: "comentarios",
+        },
+        {
+          association: "usuario",
+        }
+      ],
+      where: {
+        nombre: {
+          [op.like]: `%${busqueda}%`
+        }
+      }
+    }).then(function(resultados) {
+      res.render("searchResults", {
+        listado: resultados
+      });
     });
   }
 };
