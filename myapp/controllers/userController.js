@@ -117,7 +117,7 @@ const userController = {
 
         req.session.user = usuario;
         if (recordame) {
-          res.cookie("recordame", usuario.id, { maxAge: 1000 * 60 });
+          res.cookie("recordame", usuario.id, { maxAge: 1000 * 60 * 30 });
         }
         return res.redirect("/user/profile");
       })

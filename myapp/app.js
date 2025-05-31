@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 const db = require('./database/models');
 
+
+
 const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
@@ -49,6 +51,7 @@ app.use(async function(req, res, next) {
     next();
   }
 });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

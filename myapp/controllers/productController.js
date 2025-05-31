@@ -16,7 +16,8 @@ let relacion = {
 
 const productController = {
   add: function (req, res) {
-    res.render("addProduct");
+    let usuario = req.session.user;
+    res.render("addProduct", { usuario: usuario });
   },
 
   detail: function (req, res) {
@@ -35,7 +36,27 @@ const productController = {
         console.log(error);
       });
   },
+  addProduct: function (req, res) {
+  if (!req.session.user) {
+    return res.redirect('/user/login');
+  }
 
+  let nuevoProducto = {
+    usuario_id: req.session.user.id,
+    nombre: req.body.nombre,
+    descripcion: req.body.descripcion,
+    imagen: req.body.imagen 
+  };
+
+  Producto.create(nuevoProducto)
+    .then(function () {
+      res.redirect('/');
+    })
+    .catch(function (error) {
+      console.log(error);
+      res.send("Error al crear el producto.");
+    });
+   },
   search: function(req, res) {
     let busqueda = req.query.search;
 
