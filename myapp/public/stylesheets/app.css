@@ -130,6 +130,11 @@ hr {
   width: 80px;
 }
 
+.bienvenido {
+  text-align: center;
+  font-size: 30px;
+}
+
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
@@ -199,6 +204,7 @@ hr {
 
 .logout {
   background: transparent;
+  color: #4ea8ff;
   border: 0;
   cursor: pointer;
   font-size: 1em;
@@ -213,6 +219,8 @@ hr {
   display: block;
   padding: 5px 0;
   border-bottom: solid 1px var(--gray);
+
+
 }
 
 /*====== Banner ======*/

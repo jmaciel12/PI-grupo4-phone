@@ -157,6 +157,7 @@ const userController = {
           usuario: usuarioEncontrado,
           productos: usuarioEncontrado.productos || [],
           title: "Perfil de " + usuarioEncontrado.nombre_usuario,
+          page: "profile",
         });
       })
       .catch(function (error) {

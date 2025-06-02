@@ -33,10 +33,12 @@
                 <li><a href="/">Todos los productos</a></li>
                 <li><a href="/product/add">Cargar productos</a></li>
             </ul>
-
+            <% if (user && locals.page !== "profile") { %>
+                <p class="bienvenido">Bienvenido, <%= user.email %></p>
+            <% } %>
             <ul class="right-navbar">
                 <li><a href="/user/profile">
-                        <%= usuario.nombre %> <i class="fas fa-user"></i>
+                        <%= user.nombre %> <i class="fas fa-user"></i>
                     </a>
                 </li>
                 <li>
