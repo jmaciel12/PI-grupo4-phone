@@ -57,6 +57,27 @@ const productController = {
       res.send("Error al crear el producto.");
     });
    },
+   agregarComentario: function (req, res) {
+  if (!req.session.user) {
+    return res.redirect("/user/login");
+  }
+
+  let productoId = req.params.productoId;
+  let texto = req.body.texto;
+
+  Comentario.create({
+    texto: texto,
+    usuario_id: req.session.user.id,
+    producto_id: productoId
+  })
+    .then(function () {
+      res.redirect('/product/detalle/' + req.params.productoId);
+    })
+    .catch(function (error) {
+      console.log("Error al guardar comentario:", error);
+      res.send("Ocurrió un error al guardar el comentario.");
+    });
+},
   search: function(req, res) {
     let busqueda = req.query.search;
 

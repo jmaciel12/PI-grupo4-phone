@@ -13,6 +13,7 @@ router.get("/add", authMiddleware, productController.add);
 router.get("/detalle/:id", productController.detail);
 router.get("/search", productController.search);
 router.post("/add", authMiddleware, productController.addProduct);
+router.post("/comentario/:productoId", authMiddleware, productController.agregarComentario);
 
 
 

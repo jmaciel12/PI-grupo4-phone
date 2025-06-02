@@ -42,7 +42,7 @@
               <h3>Comentarios</h3>
 
               <% for (let i = 0; i < comentarios.length; i++) { %>
-              <article>
+              <article> 
                 <img
                   src="<%= comentarios[i].imagenPerfil %>"
                   alt="Foto de <%= comentarios[i].usuario %>"
@@ -57,16 +57,18 @@
               <% } %>
             </section>
 
-            <form class="form" action="/product/detalle" method="get">
-              <input
-                class="form-input"
-                type="text"
-                placeholder="Agregar comentario"
-              />
-              <button type="submit" class="buy-now-button">
-                AGREGAR COMENTARIO
-              </button>
-            </form>
+           <form class="form" action="/product/comentario/<%= producto.id %>" method="POST">
+                <input
+                  class="form-input"
+                   type="text"
+                   name="texto"
+                    placeholder="Agregar comentario"
+                   required
+                   />
+                    <button type="submit" class="buy-now-button">
+                      AGREGAR COMENTARIO
+                     </button>
+              </form>
 
             <hr />
           </div>
