@@ -17,57 +17,50 @@
 
 <body>
   <%- include('./partials/header') %>
-    <div class="container products-wrapper">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="products-title">Registrate</h2>
 
-          <div class="col-12">
-            <form action="/user/register" method="POST" class="login-form">
-              <label for="username">Nombre de usuario:</label>
-              <input type="text" name="username" id="username" required />
+  <div class="container products-wrapper">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="products-title">Registrate</h2>
+      </div>
 
-              <label for="email">Email:</label>
-              <input type="email" name="email" id="email" required />
+      <div class="col-12">
+        <% if (errorNombre) { %>
+          <p class="avisos"><%= errorNombre %></p>
+        <% } %>
 
-              <label for="password">Contraseña:</label>
-              <input type="password" name="password" id="password" required />
+        <% if (errorEmail) { %>
+          <p class="avisos"><%= errorEmail %></p>
+        <% } %>
 
-              <label for="birthdate">Fecha de nacimiento:</label>
-              <input type="date" name="birthdate" id="birthdate" required />
+        <% if (errorPassword) { %>
+          <p class="avisos"><%= errorPassword %></p>
+        <% } %>
 
-              <button type="submit">Registrarme</button>
-            </form>
+        <% if (errorNacimiento) { %>
+          <p class="avisos"><%= errorNacimiento %></p>
+        <% } %>
 
-            
-            <% if (errorNombre) { %>
-              <p style="color: red;">
-                <%= errorNombre %>
-              </p>
-              <% } %>
+        <form action="/user/register" method="POST" class="login-form">
+          <label for="username">Nombre de usuario:</label>
+          <input type="text" name="username" id="username" required />
 
-                <% if (errorEmail) { %>
-                  <p style="color: red;">
-                    <%= errorEmail %>
-                  </p>
-                  <% } %>
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" required />
 
-                    <% if (errorPassword) { %>
-                      <p style="color: red;">
-                        <%= errorPassword %>
-                      </p>
-                      <% } %>
+          <label for="password">Contraseña:</label>
+          <input type="password" name="password" id="password" required />
 
-                        <% if (errorNacimiento) { %>
-                          <p style="color: red;">
-                            <%= errorNacimiento %>
-                          </p>
-                          <% } %>
+          <label for="birthdate">Fecha de nacimiento:</label>
+          <input type="date" name="birthdate" id="birthdate" required />
 
+          <button type="submit">Registrarme</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-          </div>
-        </div>
-        <%- include('partials/footer') %>
+  <%- include('partials/footer') %>
 </body>
 
 </html>

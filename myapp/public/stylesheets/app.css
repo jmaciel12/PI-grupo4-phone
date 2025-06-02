@@ -49,12 +49,14 @@ h6 {
   font-weight: 700;
 }
 
+
 ul,
 ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 
 /*====== Links generales ======*/
 a {
@@ -600,6 +602,11 @@ textarea.form-input {
   gap: 8px;
   font-size: 1.6em;
   color: #ffffff;
+}
+
+.avisos {
+  color: white;
+  font-size: 20px;
 }
 
 /*====== Profile ======*/

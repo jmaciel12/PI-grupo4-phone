@@ -33,24 +33,29 @@ app.use(function(req, res, next) {
 });
 
 // 
-app.use(async function(req, res, next) {
-  try {
-    if (req.cookies.user != undefined && req.session.user == undefined) {
-      const usuarioId = req.cookies.recordarme;
-      const usuario = await db.Usuario.findByPk(usuarioId);
-      if (usuario) {
-        req.session.user = usuario;   
-        res.locals.user = usuario;    
-      } else {
-        res.clearCookie('recordame');
-      }
-    }
-    next();
-  } catch (error) {
-    console.error("Error al cargar usuario desde cookie:", error);
+app.use(function(req, res, next) {
+  if (req.cookies.recordame && !req.session.user) {
+    const usuarioId = req.cookies.recordame;
+
+    db.Usuario.findByPk(usuarioId)
+      .then(function(usuario) {
+        if (usuario) {
+          req.session.user = usuario;
+          res.locals.user = usuario;
+        } else {
+          res.clearCookie('recordame');
+        }
+        next();
+      })
+      .catch(function(error) {
+        console.error("Error al cargar usuario desde cookie:", error);
+        next();
+      });
+  } else {
     next();
   }
 });
+
 
 
 // view engine setup

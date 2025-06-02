@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
+  <!-- Include Head -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link width="" rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
 
-  <title>Login</title>
-  <!-- Font Awesome Stylesheet -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-  <!-- Bootstrap Grid Stylesheet -->
-  <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
-  <!-- Own Stylesheet -->
-  <link rel="stylesheet" href="/stylesheets/app.css" />
-</head>
+    <title>Login</title>
+    <!-- Font Awesome Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <!-- Bootstrap Grid Stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
+    <!-- Own Stylesheet -->
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+  </head>
 
-<body>
-  <%- include('./partials/header') %>
+  <body>
+    <%- include('./partials/header') %>
     <!-- Novedades -->
-
-
 
     <div class="container products-wrapper">
       <div class="row">
@@ -28,36 +29,39 @@
           <h2 class="products-title">Ingresar</h2>
         </div>
         <div class="col-12">
+          <% if (errorLogin) { %>
+          <p class="avisos"><%= errorLogin %></p>
+          <% } %>
           <form action="/user/login" method="POST" class="login-form">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required class="form-input" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              class="form-input"
+            />
 
             <label for="password">Contraseña:</label>
-            <input type="password" name="password" id="password" required class="form-input" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              required
+              class="form-input"
+            />
 
             <label class="checkbox">
-              <input type="checkbox" name="recordarme">
+              <input type="checkbox" name="recordame" />
               Recordarme
             </label>
 
             <button type="submit" class="btn">Ingresar</button>
           </form>
-
-
-
-
-
-          <% if (errorLogin) { %>
-            <p style="color: white;">
-              <%= errorLogin %>
-            </p>
-            <% } %>
-
         </div>
       </div>
     </div>
 
     <%- include('./partials/footer') %>
-</body>
-
+  </body>
 </html>
