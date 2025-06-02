@@ -80,11 +80,16 @@ const userController = {
       });
   },
 
-  login: function (req, res) {
+  login: function(req, res) {
+    if (req.session.user) {
+        return res.redirect('/user/profile');
+    }
     res.render("login", {
-      errorLogin: "",
+        errorLogin: null
     });
-  },
+
+
+},
   profile: function (req, res) {
     if (!req.session.user) {
       return res.redirect("/user/login");
@@ -159,6 +164,7 @@ const userController = {
         return res.send("Hubo un error al cargar el perfil");
       });
   },
+  
 };
 
 module.exports = userController;
