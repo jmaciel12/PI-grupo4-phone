@@ -1,91 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
-    <title>Profile</title>
 
-    <!-- Estilos -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
-    <link rel="stylesheet" href="/stylesheets/app.css" />
-  </head>
-  <body>
-    <% if (locals.user) { %> <%- include('partials/headerLogueado') %> <% } else {
-    %> <%- include('partials/header') %> <% } %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="/images/logo-mercado-liebre.jpg" />
+  <title>Profile</title>
 
-    <!-- Datos del usuario -->
-    <section class="info-usuario container products-wrapper">
-      <div class="row">
-        <div class="img-container offset-3 col-2">
-          <img
-            src="/images/users/<%= usuario.foto_perfil || 'default-image.png' %>"
-            alt="foto de perfil"
-            class="foto-perfil"
-          />
-        </div>
-        <div class="data-container col-6">
-          <div class="d-flex align-items-center">
-            <h1 class="main-title">
-              <%= usuario.nombre_usuario %>
-              <a href="/user/profile">
-                <i class="fas fa-cog"></i>
-              </a>
-            </h1>
-            <a class="btn mt-3 ml-4" href="/user/profile">SEGUIR</a>
-          </div>
-          <div>
-            <h5><%= usuario.email %></h5>
-          </div>
-          <div>
-            <ul>
-              <li><%= productos.length %> productos</li>
-              <li>200 seguidores</li>
-              <li>300 comentarios</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css" />
+  <link rel="stylesheet" href="/stylesheets/app.css" />
+</head>
 
-    <!-- Mis productos -->
-    <div class="container products-wrapper">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="products-title">Mis productos</h2>
-          <h2 class="avisos"><%= productos.length %> productos</h2>
-        </div>
-  
-        <% if (productos.length === 0) { %>
-        <div class="col-12">
-          <p class="avisos">No tenés productos cargados aún.</p>
-        </div>
-        <% } else { %> <% for (let i = 0; i < productos.length; i++) { 
-          const producto = productos[i]; %>
-        <div class="col-12 col-sm-6 col-lg-3">
-          <section class="product-box">
-            <a href="/product/detalle/<%= producto.id %>">
-              <figure class="product-box_image">
-                <img
-                  src="/images/products/<%= producto.imagen %>"
-                  alt="<%= producto.nombre %>"
-                />
-              </figure>
-              <article class="product-box_data">
-                <h2><%= producto.nombre %></h2>
-                <p><%= producto.descripcion %></p>
-              </article>  
-            </a>
-          </section>
-        </div>
-        <% } %> <% } %>
-      </div>
-    </div>
+<body>
+  <% if (locals.user) { %> <%- include('partials/headerLogueado') %>
+      <% } else { %> <%- include('partials/header') %>
+          <% } %>
 
-    <%- include('partials/footer') %>
-  </body>
+            <!-- Datos del usuario -->
+            <section class="info-usuario container products-wrapper">
+              <div class="row">
+                <div class="img-container offset-3 col-2">
+                  <img src="/images/users/<%= usuario.foto_perfil || 'default-image.png' %>" alt="foto de perfil"
+                    class="foto-perfil" />
+                </div>
+                <div class="data-container col-6">
+                  <div class="d-flex align-items-center">
+                    <h1 class="main-title">
+                      <%= usuario.nombre_usuario %>
+                        <a href="/user/profile">
+                          <i class="fas fa-cog"></i>
+                        </a>
+                    </h1>
+                    <a class="btn mt-3 ml-4" href="/user/profile">SEGUIR</a>
+                  </div>
+                  <div>
+                    <h5>
+                      <%= usuario.email %>
+                    </h5>
+                  </div>
+                  <div>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                      <li>
+                        <%= productos.length %> productos
+                      </li>
+                      <li>
+                        <%= usuario.seguidores?.length || 0 %> seguidores
+                      </li>
+                      <li>
+                        <%= usuario.comentarios?.length || 0 %> comentarios
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Mis productos -->
+            <div class="container products-wrapper">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="products-title">Mis productos</h2>
+                  <h2 class="avisos">
+                    <%= productos.length %> productos
+                  </h2>
+                </div>
+
+                <% if (productos.length===0) { %>
+                  <div class="col-12">
+                    <p class="avisos">No tenés productos cargados aún.</p>
+                  </div>
+                  <% } else { %>
+                    <% for (let i=0; i < productos.length; i++) { const producto=productos[i]; %>
+                      <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                          <a href="/product/detalle/<%= producto.id %>">
+                            <figure class="product-box_image">
+                              <img src="/images/products/<%= producto.imagen %>" alt="<%= producto.nombre %>" />
+                            </figure>
+                            <article class="product-box_data">
+                              <h2>
+                                <%= producto.nombre %>
+                              </h2>
+                              <p>
+                                <%= producto.descripcion %>
+                              </p>
+                            </article>
+                          </a>
+                        </section>
+                      </div>
+                      <% } %>
+                        <% } %>
+              </div>
+            </div>
+
+            <%- include('partials/footer') %>
+</body>
+
 </html>

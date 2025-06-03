@@ -91,16 +91,30 @@ const userController = {
 
 },
   profile: function (req, res) {
-    if (!req.session.user) {
-      return res.redirect("/user/login");
-    }
+  if (!req.session.user) {
+    return res.redirect("/user/login");
+  }
 
-    res.render("profile", {
-      usuario: req.session.user,
-      productos: [],
-      title: "Perfil de " + req.session.user.nombre_usuario,
+  db.Usuario.findByPk(req.session.user.id, {
+    include: [
+      { association: "productos" },
+      { association: "comentarios" }
+      // Si agregás seguidores, también la incluís acá
+    ]
+  })
+    .then(function (usuarioActualizado) {
+      res.render("profile", {
+        usuario: usuarioActualizado,
+        productos: usuarioActualizado.productos || [],
+        title: "Perfil de " + usuarioActualizado.nombre_usuario,
+        page: "profile"
+      });
+    })
+    .catch(function (error) {
+      console.log("Error al cargar el perfil propio:", error);
+      res.send("Hubo un error al cargar tu perfil.");
     });
-  },
+},
 
   processLogin: function (req, res) {
     const { email, password, recordame } = req.body;
